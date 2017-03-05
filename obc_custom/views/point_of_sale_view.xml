@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_pos_session_tree">
+            <field name="name">pos.session.tree.view</field>
+            <field name="model">pos.session</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_session_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='config_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_pos_session_form">
+            <field name="name">pos.session.form.view</field>
+            <field name="model">pos.session</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//sheet/div" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='config_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/separator" position="attributes">
+                    <attribute name="string">Summary by Payment</attribute>
+                </xpath>
+                <xpath expr="//field[@name='statement_ids']/tree" position="attributes">
+                    <attribute name="editable">bottom</attribute>
+                </xpath>
+                <xpath expr="//field[@name='statement_ids']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath
+                        expr="//field[@name='statement_ids']/tree/field[@name='journal_id']"
+                        position="attributes">
+                    <attribute name="string">Method</attribute>
+                </xpath>
+                <xpath expr="//field[@name='statement_ids']/tree/field[@name='name']"
+                       position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath
+                        expr="//field[@name='statement_ids']/tree/field[@name='balance_start']"
+                        position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath
+                        expr="//field[@name='statement_ids']/tree/field[@name='balance_end_real']"
+                        position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath
+                        expr="//field[@name='statement_ids']/tree/field[@name='difference']"
+                        position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='statement_ids']/tree/field[@name='state']"
+                       position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

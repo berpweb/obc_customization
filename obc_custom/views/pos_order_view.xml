@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_pos_pos_form">
+            <field name="name">pos.order.form.view</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </xpath>
+                <xpath expr="//field[@name='fiscal_position_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/div[@name='button_box']/button[@name='action_view_invoice']"
+                       position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_pos_order_invoice']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//button[@name='refund']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//field[@name='session_id']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath
+                        expr="//page[(2)]/field[@name='statement_ids']/tree/field[@name='statement_id']"
+                        position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//page[(3)]/group/field[@name='location_id']"
+                       position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//page[(3)]/group/field[@name='picking_id']"
+                       position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//page[(3)]/group/field[@name='pos_reference']"
+                       position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//page[@name='extra']"
+                       position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[last()]"
+                       position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_pos_order_tree">
+            <field name="name">pos.order.tree.view</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='name']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='pos_reference']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='session_id']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='state']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='user_id']" position="attributes">
+                    <attribute name="groups">obc_custom.make_invisible</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

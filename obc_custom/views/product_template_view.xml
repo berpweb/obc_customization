@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_product_template_form">
+        <field name="name">product.template.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sale_ok']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='purchase_ok']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@class='oe_chatter']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='message_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="point_of_sale.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@class='oe_chatter']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                    expr="//field[@name='pos_categ_id']"
+                    position="replace">
+            </xpath>
+            <xpath expr="//div[@class='oe_button_box']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                    expr="//field[@name='available_in_pos']"
+                    position="replace">
+            </xpath>
+            <xpath expr="//page[@name='general_information']//group[@name='group_general']"
+                   position="inside">
+                <field name="pos_categ_id" string="Category"/>
+                <field name="available_in_pos"/>
+            </xpath>
+            <xpath expr="//page[(2)]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[(3)]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[(4)]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[(5)]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_normal_form_view">
+        <field name="name">product.product</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_chatter']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='message_follower_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_product_tree" model="ir.ui.view">
+        <field name="name">product.stock.tree.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.view_stock_product_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_available']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='virtual_available']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_form_view_procurement_button">
+        <field name="name">product.product.procurement</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_form_view_procurement_button"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='%(stock.act_product_stock_move_open)d']"
+                   position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_only_form_view">
+        <field name="name">product.template.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='variants']" position="attributes">
+                <attribute name="string">Varieties</attribute>
+            </xpath>
+            <xpath
+                    expr="//page[@name='variants']/field[@name='attribute_line_ids']/tree/field[@name='attribute_id']"
+                    position="attributes">
+                <attribute name="string">Name</attribute>
+            </xpath>
+            <xpath
+                    expr="//page[@name='variants']/field[@name='attribute_line_ids']/tree/field[@name='value_ids']"
+                    position="attributes">
+                <attribute name="string">Value</attribute>
+            </xpath>
+            <xpath expr="//p" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

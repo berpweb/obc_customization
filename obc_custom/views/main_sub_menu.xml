@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account.menu_finance" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="stock.menu_stock_root" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="mail.mail_channel_menu_root_chat" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="point_of_sale.menu_point_rep" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="point_of_sale.menu_pos_barcode_nomenclature_all"
+            model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="point_of_sale.menu_pos_global_settings" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="point_of_sale.menu_report_order_details" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="point_of_sale.menu_action_account_journal_form_open"
+            model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record id="point_of_sale.menu_point_config_product"
+            model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="point_of_sale.menu_pos_session_opening">
+        <field name="name">Start Selling</field>
+    </record>
+    <record model="ir.ui.menu" id="point_of_sale.menu_pos_session_all">
+        <field name="name">Sales By Session</field>
+    </record>
+    <record id="point_of_sale.menu_pos_session_all"
+            model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('point_of_sale.group_pos_user')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="point_of_sale.menu_point_ofsale">
+        <field name="name">Sale Orders</field>
+    </record>
+    <menuitem id="point_of_sale_product_menu" name="Products"
+              groups="point_of_sale.group_pos_user" parent="point_of_sale.menu_point_root" sequence="10"/>
+    <menuitem id="point_of_sale.menu_pos_products"
+              action="point_of_sale.product_product_action" name="Products Variants"
+              parent="point_of_sale_product_menu" sequence="20" groups="obc_custom.make_invisible"/>
+    <record id="point_of_sale.menu_pos_products"
+            model="ir.ui.menu">
+        <field name="groups_id" eval="[(6,False,[ref('obc_custom.make_invisible')])]"/>
+    </record>
+    <menuitem id="point_of_sale.menu_pos_products_template"
+              action="product.product_template_action" name="Products"
+              parent="point_of_sale_product_menu" sequence="20" groups="point_of_sale.group_pos_user"/>
+    <menuitem id="point_of_sale.menu_product_pos_category"
+              action="point_of_sale.product_pos_category_action" name="Product Categories"
+              parent="point_of_sale_product_menu" sequence="20" groups="point_of_sale.group_pos_user"/>
+</odoo>
