@@ -62,6 +62,7 @@
             <xpath expr="//page[(5)]" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
+
         </field>
     </record>
 
@@ -74,6 +75,9 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='message_follower_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='attribute_value_ids']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
         </field>

@@ -20,6 +20,7 @@
         'pos_multi_currency',
         'pos_multi_session',
         'pos_multi_session_restaurant',
+        'pos_combo',
         'theme_kit',
                 ],
     'data': [],

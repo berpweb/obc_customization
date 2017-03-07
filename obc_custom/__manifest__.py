@@ -8,7 +8,9 @@
     'version': '10.0.1.0.0',
     'application': True,
     'installable': True,
-    'depends': ['product', 'point_of_sale'],
+    'depends': ['product',
+                'pos_combo',
+                'point_of_sale'],
     'data': [
         "security/pos_security_view.xml",
         "views/main_sub_menu.xml",
