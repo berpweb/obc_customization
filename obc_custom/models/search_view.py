@@ -40,3 +40,16 @@ class ProductAttributeValue(models.Model):
             if k not in fields_to_show:
                 res[k]['selectable'] = False
         return res
+
+
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
+
+    @api.model
+    def fields_get(self, *args, **kwargs):
+        fields_to_show = ['pos_categ_id']
+        res = super(ProductProduct, self.sudo()).fields_get(*args, **kwargs)
+        for k in res.iterkeys():
+            if k not in fields_to_show:
+                res[k]['selectable'] = False
+        return res

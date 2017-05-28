@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <record id="product_product_category_search" model="ir.ui.view">
+            <field name="name">product.product</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <search string="Search Products">
+                    <field name="pos_categ_id" />
+                </search>
+            </field>
+        </record>
+
+        <record id="product_product_action_category" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'search_default_pos_categ_id': active_id}</field>
+            <field name="domain" eval="[('available_in_pos','&lt;&gt;',False)]"/>
+            <field name="search_view_id" ref="obc_custom.product_product_category_search"/>
+            <field name="view_id" eval="False"/>
+        </record>
+
         <record model="ir.ui.view" id="product_pos_category_form_view">
             <field name="name">pos.category.form.view</field>
             <field name="model">pos.category</field>
             <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='image_medium']" position="after">
+                    <div class="oe_right oe_button_box" name="buttons">
+                        <button string="Products" class="oe_stat_button" icon="fa-filter"
+                            name="%(obc_custom.product_product_action_category)d" type="action"
+                            context="{'default_pos_categ_id': active_id}"/>
+                    </div>
+                </xpath>
                 <xpath expr="//field[@name='sequence']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
